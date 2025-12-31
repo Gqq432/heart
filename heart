@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>跳动的爱心</title>
+  <style>
+    :root { color-scheme: dark; }
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at 30% 20%, #2b1b2a, #0b0b12 60%, #07070c);
+      font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .heart{
+      width:140px;height:140px;position:relative;
+      transform: rotate(-45deg);
+      animation: beat 1s infinite;
+      filter: drop-shadow(0 10px 24px rgba(255, 64, 129, .35));
+    }
+    .heart::before,.heart::after{
+      content:"";position:absolute;width:140px;height:140px;
+      background: linear-gradient(145deg, #ff5a9f, #ff2d55);
+      border-radius:50%;
+    }
+    .heart::before{ top:-70px; left:0; }
+    .heart::after{ left:70px; top:0; }
+    .heart .core{
+      position:absolute; inset:0;
+      background: linear-gradient(145deg, #ff5a9f, #ff2d55);
+      border-radius:16px;
+    }
+    @keyframes beat{
+      0%,100%{ transform: rotate(-45deg) scale(1); }
+      20%{ transform: rotate(-45deg) scale(1.12); }
+      40%{ transform: rotate(-45deg) scale(1.02); }
+      60%{ transform: rotate(-45deg) scale(1.16); }
+      80%{ transform: rotate(-45deg) scale(1.04); }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart" aria-label="跳动的爱心"><div class="core"></div></div>
+</body>
+</html>
